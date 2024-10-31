@@ -9,15 +9,16 @@ pipeline {
     stage('docker build and push') {
       steps {
         sh '''
-        sudo docker build -t dododong478/keduitlab:purple .
-        sudo docker push dododong478/keduitlab:purple
+        sudo docker build -t dododong478/keduitlab:red .
+        sudo docker push dododong478/keduitlab:red
         '''
       }
     }
     stage('deploy and service') {
       steps {
         sh '''
-        sudo kubectl apply -f .
+        sudo ansible-playbook to_node.yml
+        sudo ansible-playbook to_master.yml
         '''
       }
     }
