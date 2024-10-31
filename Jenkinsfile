@@ -19,6 +19,7 @@ pipeline {
       steps {
         sh '''
         sudo ansible-playbook /root/to_node.yml
+        sudo ansible-playbook /root/to_master.yml 
         '''
       }
     }
