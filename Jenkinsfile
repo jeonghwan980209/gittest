@@ -11,6 +11,7 @@ pipeline {
         sh '''
         sudo docker build -t dododong478/keduitlab:red .
         sudo docker push dododong478/keduitlab:red
+        pwd
         '''
       }
     }
@@ -18,7 +19,6 @@ pipeline {
       steps {
         sh '''
         sudo ansible-playbook to_node.yml
-        sudo ansible-playbook to_master.yml
         '''
       }
     }
