@@ -18,7 +18,7 @@ pipeline {
     stage('deploy and service') {
       steps {
         sh '''
-        sudo ansible-playbook to_node.yml
+        sudo ansible-playbook /root/to_node.yml
         '''
       }
     }
