@@ -31,7 +31,7 @@ metadata:
   name: yellow-lb
 spec:
   selector:
-    app: myapp
+    color: yeloow
   ports:
   - port: 80
     targetPort: 80
