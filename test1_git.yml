@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: deploy-yellow
 spec:
+  replicas: 3
   selector:
     matchLabels:
       color: yellow
