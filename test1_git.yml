@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-yellow
+spec:
+  selector:
+    matchLabels:
+      color: yellow
+  template:
+    metadata:
+      labels:
+        color: yellow
+    spec:
+      containers:
+      - name: ctn-yellow
+        image: dododong478/keduitlab:yellow
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name:  myrepo
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yellow-lb
+spec:
+  selector:
+    app: myapp
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
