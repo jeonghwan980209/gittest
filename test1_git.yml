@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy-yellow
+  name: deploy-purple
 spec:
   replicas: 3
   selector:
     matchLabels:
-      color: yellow
+      color: purple
   template:
     metadata:
       labels:
-        color: yellow
+        color: purple
     spec:
       containers:
-      - name: ctn-yellow
-        image: dododong478/keduitlab:yellow
+      - name: ctn-purple
+        image: dododong478/keduitlab:purple
         resources:
           limits:
             memory: "128Mi"
@@ -29,10 +29,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: yellow-lb
+  name: purple-lb
 spec:
   selector:
-    color: yellow
+    color: purple
   ports:
   - port: 80
     targetPort: 80
