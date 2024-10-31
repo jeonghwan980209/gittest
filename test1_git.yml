@@ -29,7 +29,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: purple-lb
+  name: red-lb
 spec:
   selector:
     color: red
